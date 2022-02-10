@@ -6,11 +6,12 @@ import axios from 'axios';
     https://api.github.com/users/<your name>
 */
 
-    axios.get(`https://api.github.com/users/KainCortrecht`)
-    .then(resp =>{
-      console.log(resp.data);
-    })
-    .catch(err => console.error(err))
+axios
+  .get(`https://api.github.com/users/KainCortrecht`)
+  .then((resp) => {
+    document.querySelector('.cards').appendChild(githubCard(resp.data));
+  })
+  .catch((err) => console.error(err))
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -37,27 +38,26 @@ import axios from 'axios';
 
 const followersArray = [];
 
-
-function gitHubCard(gitInfo) {
-  const card = document.createElement('div');
-  const img = document.createElement('img');
-  const cardInfo = document.createElement('div');
-  const name = document.createElement('h3');
-  const login = document.createElement('p');
-  const location = document.createElement('p');
-  const profile = document.createElement('p');
-  const profileLink = document.createElement('a');
-  const followers = document.createElement('p');
-  const following = document.createElement('p');
-  const bio = document.createElement('p');
+function githubCard(gitInfo) {
+  const card = document.createElement("div");
+  const img = document.createElement("img");
+  const cardInfo = document.createElement("div");
+  const name = document.createElement("h3");
+  const login = document.createElement("p");
+  const location = document.createElement("p");
+  const profile = document.createElement("p");
+  const profileLink = document.createElement("a");
+  const followers = document.createElement("p");
+  const following = document.createElement("p");
+  const bio = document.createElement("p");
 
   img.src = gitInfo.avatar_url;
-  img.alt = 'github user';
+  img.alt = "github user";
   name.textContent = gitInfo.name;
   login.textContent = gitInfo.login;
   location.textContent = gitInfo.location;
-  profile.textContent = 'Profile';
-  profileLink.textContent = 'Profile link';
+  profile.textContent = "Profile";
+  profileLink.textContent = "Profile link";
   profileLink.href = gitInfo.html_url;
   followers.textContent = `Followers: ${gitInfo.followers}`;
   following.textContent = `Following: ${gitInfo.following}`;
@@ -69,10 +69,12 @@ function gitHubCard(gitInfo) {
   cardInfo.appendChild(login);
   cardInfo.appendChild(location);
   cardInfo.appendChild(profile);
-  cardInfo.appendChild(profileLink);
+  profile.appendChild(profileLink);
   cardInfo.appendChild(followers);
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
+
+  return card;
 }
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
