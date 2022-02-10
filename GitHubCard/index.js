@@ -38,7 +38,7 @@ function theGitCard(username) {
     user, and adding that card to the DOM.
 */
 
-const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+const followersArray = ['KainCortrecht', 'tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
 
 for (let i = 0; i < followersArray.length; i++) {
   theGitCard(followersArray[i])
