@@ -62,6 +62,17 @@ function gitHubCard(gitInfo) {
   followers.textContent = `Followers: ${gitInfo.followers}`;
   following.textContent = `Following: ${gitInfo.following}`;
   bio.textContent = gitInfo.bio;
+
+  card.appendChild(img);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(login);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  cardInfo.appendChild(profileLink);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
 }
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
